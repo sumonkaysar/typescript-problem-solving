@@ -1,4 +1,3 @@
-// Problem Solving - 1
 function formatString(input: string, toUpper: boolean = true): string {
   if (toUpper) {
     return input.toUpperCase();
@@ -6,22 +5,19 @@ function formatString(input: string, toUpper: boolean = true): string {
   return input.toLowerCase();
 }
 
-// Problem Solving - 2
-interface Product {
+interface Book {
   title: string;
   rating: number;
 }
-function filterByRating(items: Product[]): Product[] {
+function filterByRating(items: Book[]): Book[] {
   const filtered = items.filter((item) => item.rating >= 4);
   return filtered;
 }
 
-// Problem Solving - 3
 function concatenateArrays<T>(...arrays: T[][]): T[] {
   return arrays.flat(1);
 }
 
-// Problem Solving - 4
 class Vehicle {
   constructor(private make: string, private year: number) {}
   getInfo(): string {
@@ -38,7 +34,6 @@ class Car extends Vehicle {
   }
 }
 
-// Problem Solving - 5
 function processValue(value: string | number): number {
   if (typeof value === "number") {
     return value * 2;
@@ -46,19 +41,22 @@ function processValue(value: string | number): number {
   return value.length;
 }
 
-// Problem Solving - 6
-// interface Product {
-//     name: string;
-//     price: number;
-//   }
+interface Product {
+  name: string;
+  price: number;
+}
 
-//   function getMostExpensiveProduct(products: Product[]): Product | null{
-//     if (products.length > 0) {
-//         return products.find((product: Product) => product.)
-//     }
-//   }
+function getMostExpensiveProduct(products: Product[]): Product | null {
+  if (products.length > 0) {
+    return products.reduce(
+      (acc: Product, curr: Product) => (acc.price < curr.price ? curr : acc),
+      products[0]
+    );
+  } else {
+    return null;
+  }
+}
 
-// Problem Solving - 7
 enum Day {
   Monday,
   Tuesday,
@@ -77,4 +75,14 @@ function getDayType(day: Day): string {
     default:
       return "Weekday";
   }
+}
+
+async function squareAsync(n: number): Promise<number> {
+  return new Promise((resolve, reject) => {
+    if (n < 0) {
+      reject("Error: Negative number not allowed");
+    } else {
+      setTimeout(() => resolve(n * n), 1000);
+    }
+  });
 }
