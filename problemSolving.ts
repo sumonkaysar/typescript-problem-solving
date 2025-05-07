@@ -20,3 +20,22 @@ function filterByRating(items: Product[]): Product[] {
 function concatenateArrays<T>(...arrays: T[][]): T[] {
   return arrays.flat(1);
 }
+
+// Problem Solving - 4
+class Vehicle {
+  constructor(private make: string, private year: number) {}
+  getInfo(): string {
+    return `Make: ${this.make}, Year: ${this.year}`;
+  }
+}
+
+class Car extends Vehicle {
+  constructor(make: string, year: number, private model: string) {
+    super(make, year);
+  }
+  getModel(): string {
+    return `Model: ${this.model}`;
+  }
+}
+const myCar = new Car("Toyota", 2020, "Corolla");
+console.log(myCar.getInfo(), myCar.getModel());
