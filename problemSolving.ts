@@ -45,8 +45,36 @@ function processValue(value: string | number): number {
   }
   return value.length;
 }
-console.log(processValue("hello"), processValue(10));
 
 // Problem Solving - 6
+// interface Product {
+//     name: string;
+//     price: number;
+//   }
+
+//   function getMostExpensiveProduct(products: Product[]): Product | null{
+//     if (products.length > 0) {
+//         return products.find((product: Product) => product.)
+//     }
+//   }
 
 // Problem Solving - 7
+enum Day {
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday,
+}
+
+function getDayType(day: Day): string {
+  switch (day) {
+    case Day.Sunday:
+    case Day.Saturday:
+      return "Weekend";
+    default:
+      return "Weekday";
+  }
+}
